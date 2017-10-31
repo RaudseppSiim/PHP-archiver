@@ -2,48 +2,40 @@
 
 	$input = "000001110101101";
 	$output = compress($input);
+	echo $input;
+	echo "<br>";
 	echo $output;
 	$normal = decompresser($output);
 	echo $normal;
 	
-	function compress($argument)
+	function compress($vastus)
 	{
-		//kui järjestus on 10 või yle 10 sama symboli tuleb vahele ' näide 12'0. 
-		//for annab array sümboli, see lisatakse ajutisse stringi, mis lisatakse lõpp stringi.
-		//if laused kontrollivad millal temp fail nullitakse,
-		//strval muudab countsyb'i stringiks
-		$array = array($argument);
-		$tempsymb = "";
-		$countsyb = 0;
-		for($i = 0;$i > Count($array);$i++)
-		{
-			if($array[$i] == 0 and $array[$i+1]!=1)
-			{
-				$countsyb++;
-				$tempsymb ="0";
-			}
-			if($array[$i] == 1 and $array[$i+1]!=0)
-			{
-				$countsyb++;
-				$tempsymb = "1";
-			}
-			if($array[$i] == 1 and $array[$i+1]==1)
-			{
-				$countsyb++;
-			}
-			if($array[$i] == 0 and $array[$i+1]==0)
-			{
-				$countsyb++;
-			}
-			
-			$output = strval(countsyb) + tempsymb;
-			
-		}
-		return $output;
-	}
-	function decompresser()
-	{
+		$vastus = str_replace("0000","4",$vastus);
+		$vastus = str_replace("000","3",$vastus);
+		$vastus = str_replace("00","2",$vastus);
 		
+		
+		$vastus = str_replace("1111","a",$vastus);
+		$vastus = str_replace("111","b",$vastus);
+		$vastus = str_replace("11","c",$vastus);
+		
+		
+		return $vastus;
+		
+			
+		
+		
+	}
+	function decompresser($output)
+	{
+		$vastus = str_replace("4","0000",$vastus);
+		$vastus = str_replace("3","000",$vastus);
+		$vastus = str_replace("2","00",$vastus);
+		
+		
+		$vastus = str_replace("a","1111",$vastus);
+		$vastus = str_replace("b","111",$vastus);
+		$vastus = str_replace("c","11",$vastus);
 		
 		
 	}
