@@ -22,6 +22,7 @@
 		$vastus = str_replace("111","b",$vastus);
 		$vastus = str_replace("11","c",$vastus);
 		$vastus = str_replace("01","d",$vastus);
+		$vastus = str_replace("10","e",$vastus);
 		
 		return $vastus;
 		
@@ -40,6 +41,7 @@
 		$output = str_replace("b","111",$output);
 		$output = str_replace("c","11",$output);
 		$output = str_replace("d","01",$output);
+		$output = str_replace("e","10",$output);
 		return $output;
 		
 	}
