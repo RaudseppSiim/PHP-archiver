@@ -1,12 +1,15 @@
 <?php
 
-	$input = "000001110101101";
+	$input = file_get_contents('binaar.txt');;
 	$output = compress($input);
 	echo $input;
 	echo "<br>";
 	echo $output;
+	echo "<br>";
 	$normal = decompresser($output);
 	echo $normal;
+	$myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
+	fwrite($myfile, $output);
 	
 	function compress($vastus)
 	{
@@ -18,7 +21,7 @@
 		$vastus = str_replace("1111","a",$vastus);
 		$vastus = str_replace("111","b",$vastus);
 		$vastus = str_replace("11","c",$vastus);
-		
+		$vastus = str_replace("01","d",$vastus);
 		
 		return $vastus;
 		
@@ -28,15 +31,16 @@
 	}
 	function decompresser($output)
 	{
-		$vastus = str_replace("4","0000",$vastus);
-		$vastus = str_replace("3","000",$vastus);
-		$vastus = str_replace("2","00",$vastus);
+		$output = str_replace("4","0000",$output);
+		$output = str_replace("3","000",$output);
+		$output = str_replace("2","00",$output);
 		
 		
-		$vastus = str_replace("a","1111",$vastus);
-		$vastus = str_replace("b","111",$vastus);
-		$vastus = str_replace("c","11",$vastus);
-		
+		$output = str_replace("a","1111",$output);
+		$output = str_replace("b","111",$output);
+		$output = str_replace("c","11",$output);
+		$output = str_replace("d","01",$output);
+		return $output;
 		
 	}
 ?>
