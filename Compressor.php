@@ -20,11 +20,12 @@
 				$countsyb++;
 				$tempsymb ="0";
 			}
-			if($array[$i] == 1 and &array[$i+1]!=0)
+			if($array[$i] == 1 and $array[$i+1]!=0)
 			{
 				$countsyb++;
 				$tempsymb = "1";
 			}
+			if($array[$i] == 1 and $array[$i+1]==1)
 			
 			return $output = strval(countsyb) + tempsymb;
 		}
